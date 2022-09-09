@@ -1,0 +1,71 @@
+{
+	"name": "find-font",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "Detect fonts supported by the system on the client.",
+	"author": "CondorHero",
+	"license": "MIT",
+	"homepage": "https://github.com/condorheroblog/find-font#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/condorheroblog/find-font.git"
+	},
+	"bugs": {
+		"url": "https://github.com/condorheroblog/find-font/issues"
+	},
+	"keywords": [
+		"find-font",
+		"find-detect"
+	],
+	"exports": {
+		".": {
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"postinstall": "simple-git-hooks",
+		"dev": "esno ./src/index.ts",
+		"coverage": "vitest run --coverage",
+		"test": "vitest",
+		"build": "unbuild",
+		"prepublish": "npm run build",
+		"publish": "npm publish",
+		"release": "bumpp package.json packages/*/package.json --commit --push --tag"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npx lint-staged",
+		"preserveUnused": [
+			"commit-msg"
+		]
+	},
+	"lint-staged": {
+		"src/*.{json,js,jsx,mjs,cjs,ts,tsx,md}": [
+			"eslint --fix"
+		]
+	},
+	"devDependencies": {
+		"@antfu/eslint-config-ts": "^0.26.3",
+		"bumpp": "^8.2.1",
+		"eslint": "^8.23.0",
+		"esno": "^0.16.3",
+		"fast-glob": "^3.2.11",
+		"lint-staged": "^13.0.3",
+		"simple-git-hooks": "^2.8.0",
+		"typescript": "^4.8.3",
+		"unbuild": "^0.8.10",
+		"vitest": "^0.23.1"
+	}
+}
