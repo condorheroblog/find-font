@@ -28,7 +28,7 @@ import { findFont } from 'findFont'
 const isSupport = findFont('AABBCC')
 ```
 
-Support [Mini Program](https://developers.weixin.qq.com/miniprogram/en/dev/framework/):
+### Support [Mini Program](https://developers.weixin.qq.com/miniprogram/en/dev/framework/):
 
 ```ts
 import { findFont } from 'findFont'
@@ -36,6 +36,19 @@ import { findFont } from 'findFont'
 const canvas = wx.createOffscreenCanvas({ type: '2d', width: 100, height: 100 })
 const context = canvas.getContext('2d')
 findFont('Helvetica', { canvasInstance: canvas, canvasContext2D: context })
+```
+
+### Direct run in the browser
+
+with the help of tsup, besides supporting ESM and CommonJS, IIFE is also supported, so we can direct run in the browser.
+
+```html
+<!-- html file -->
+<script src="https://unpkg.com/browse/find-font/dist/index.global.js"></script>
+<script>
+	const { findFont } = __FINDFONT__;
+	console.log(findFont("Helvetica"), findFont("ABC"));
+</script>
 ```
 
 ## Principle
