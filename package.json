@@ -1,7 +1,7 @@
 {
 	"name": "find-font",
 	"type": "module",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Detect fonts supported by the system on the client.",
 	"author": "CondorHero",
 	"license": "MIT",
