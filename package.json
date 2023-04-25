@@ -40,7 +40,6 @@
 		"dist"
 	],
 	"scripts": {
-		"postinstall": "simple-git-hooks",
 		"prepublishOnly": "nr build",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
